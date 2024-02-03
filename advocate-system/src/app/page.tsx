@@ -1,8 +1,12 @@
+'use client'
+import { Template, AuthenticatedPage } from '@/components';
 
-export default function Home() {
-  return (
-    <main>
-      <h1>Hello Kleber</h1>
-    </main>
-  )
+export default function Home(){
+    return (
+        <AuthenticatedPage>
+            <Template>
+                home
+            </Template>
+        </AuthenticatedPage>
+    )
 }
