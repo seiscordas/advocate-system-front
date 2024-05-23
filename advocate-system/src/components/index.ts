@@ -1,6 +1,0 @@
-export { ImageCard } from '@/components/ImageCard'
-export { Template } from '@/components/Template'
-export * from './input'
-export * from './button'
-export * from './notification/useNotification'
-export * from '@/components/auth/AuthenticatePage'
