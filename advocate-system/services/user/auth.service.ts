@@ -71,38 +71,38 @@ class AuthService {
         }
     }
 
-    getUserSession(): UserSessionToken | null {
-        console.log("getUserSession()");
-        try {
-                const authString = cookies().get(AuthService.AUTH_PARAM);
+    // getUserSession(): UserSessionToken | null {
+    //     console.log("getUserSession()");
+    //     try {
+    //             const authString = cookies().get(AuthService.AUTH_PARAM);
 
-                if (!authString) {
-                    return null;
-                }
+    //             if (!authString) {
+    //                 return null;
+    //             }
 
-                const token: UserSessionToken = JSON.parse(authString);
-                return token;
-            } catch (error) {
-                console.error('Error getting the cookie:', error);
-            return null;
-        }
-    }
+    //             const token: UserSessionToken = JSON.parse(authString);
+    //             return token;
+    //         } catch (error) {
+    //             console.error('Error getting the cookie:', error);
+    //         return null;
+    //     }
+    // }
 
-    isSessionValid() : boolean {
-        console.log("isSessionValid()");
-        const userSession: UserSessionToken | null = this.getUserSession();
+    // isSessionValid() : boolean {
+    //     console.log("isSessionValid()");
+    //     const userSession: UserSessionToken | null = this.getUserSession();
      
-        if (!userSession) {
-            return false;
-        }
+    //     if (!userSession) {
+    //         return false;
+    //     }
 
-        const expiration: number | undefined = userSession?.duration;
-        if (expiration) {
-            const expirationDateInMilliseconds = expiration *  1000;
-            return new Date() <  new Date(expirationDateInMilliseconds);
-        }
-        return false;
-    }
+    //     const expiration: number | undefined = userSession?.duration;
+    //     if (expiration) {
+    //         const expirationDateInMilliseconds = expiration *  1000;
+    //         return new Date() <  new Date(expirationDateInMilliseconds);
+    //     }
+    //     return false;
+    // }
 }
 
 export const authService = () => new AuthService();

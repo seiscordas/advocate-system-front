@@ -17,7 +17,6 @@ export default async function UsersTable({
   const data: ApiResponse<UserList> = await services.fetchFilteredUsers(query, currentPage);
 
   const users = data.content;
-  console.log("users: ", users)
 
   return (
     <div className="mt-6 flow-root">
@@ -33,7 +32,7 @@ export default async function UsersTable({
                   <div>
                     <div className="mb-2 flex items-center">
                       <Image
-                        src={user.image_url}
+                        src={user.imageUrl}
                         className="mr-2 rounded-full"
                         width={28}
                         height={28}
@@ -89,7 +88,7 @@ export default async function UsersTable({
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
                       <Image
-                        src={user.image_url}
+                        src={user.imageUrl}
                         className="rounded-full"
                         width={28}
                         height={28}

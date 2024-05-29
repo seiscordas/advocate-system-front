@@ -28,14 +28,8 @@ export type State = {
  };
 
 class UserServices{
-    logoutUrl: string = "http://localhost:3000/api/logout";
-    // logoutUrl: string = "http://localhost:3000/dashboard/signout";
     UpdateUser = FormSchema.omit({ id: true, date: true });
     baseUrl: string = 'http://localhost:8082/v1/user';
-
-    // clientId: process.env.GITHUB_ID,
-    //   clientSecret: process.env.GITHUB_SECRET,
-
 
     async  fetchFilteredUsers(
         query: string,
@@ -50,23 +44,18 @@ class UserServices{
         }
       });
       
-      
-      // redirect(this.logoutUrl);
       if (!response.ok) {
-          await fetch(this.logoutUrl, { method: "POST" });
-          // console.log(":::::response.status:", response.status);
+          console.log(":::::response.status:", response.status);
           //return new UserList() as ApiResponse<UserList>;
       }
         
         
         const data = await response.json();
-        console.log("Users:", data);
         
         return data;  
     }
     
     async  getUserById(userId: string) : Promise<User> {
-        console.log(":::::userId: ", userId);
         const session = await auth();
         
         const response = await fetch(`${this.baseUrl}/${userId}` , {
@@ -75,7 +64,6 @@ class UserServices{
                 "Authorization": `Bearer ${session?.user.accessToken}`
             }
         });
-        
         
         if(!response.ok){
             console.log(":::::Erro ao obter usuários por ID: ", response.status);

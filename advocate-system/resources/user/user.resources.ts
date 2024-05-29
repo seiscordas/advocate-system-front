@@ -1,25 +1,25 @@
-export interface User {
-    id: string;
-    firstName?: string;
-    lastName?: string;
-    login?: string;
-    email?: string;
-    password?: string;
-    registrationTime?: string;
-    lastModificationTime?: string;
-    rolesDTO?: string[];  
-}
+// export interface User {
+//     id: string;
+//     firstName: string;
+//     lastName: string;
+//     login: string;
+//     email: string;
+//     password: string;
+//     registrationTime?: string;
+//     lastModificationTime: string;
+//     rolesDTO: string[];  
+// }
 
 export interface UserList  {
     id: string;
     firstName: string;
-    lastName?: string;
+    lastName: string;
     login: string;
     email: string;
-    image_url: string;
+    imageUrl: string;
     registrationTime: string;
     lastModificationTime: string;
-    rolesDTO?: string[];
+    rolesDTO: string[];
     status: 'active' | 'inactive';
 };
 
